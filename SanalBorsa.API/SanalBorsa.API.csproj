@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SanalBorsa.Bussines\SanalBorsa.Bussines.csproj" />
     <ProjectReference Include="..\SanalBorsa.Data\SanalBorsa.Data.csproj" />
   </ItemGroup>
 

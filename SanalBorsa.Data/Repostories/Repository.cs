@@ -38,7 +38,9 @@ namespace SanalBorsa.Data.Repostories
 
         public void Remove(TEntity entity)
         {
+            
             _dbSet.Remove(entity);
+            _context.SaveChanges();
         }
 
         public async Task<TEntity> SingleOrDefaultAsync(Expression<Func<TEntity, bool>> expression)

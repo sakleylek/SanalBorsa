@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using SanalBorsa.Bussines;
+using SanalBorsa.Bussines.Intefaces;
+using SanalBorsa.Bussines.Services;
 using SanalBorsa.Core.Entities;
 using SanalBorsa.Data;
 using SanalBorsa.Data.Repostories;
@@ -22,7 +23,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddTransient<IGoldenService, GoldenService>();
+builder.Services.AddTransient<ICryptoService, CryptoService>();
+builder.Services.AddTransient<IStocksService, StocksService>(); // stocks
 var app = builder.Build();
+
+
+
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

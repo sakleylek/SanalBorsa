@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SanalBorsa.Bussines;
+using SanalBorsa.Bussines.Intefaces;
 using SanalBorsa.Core.Entities;
 
 namespace SanalBorsa.API.Controllers
@@ -39,6 +39,25 @@ namespace SanalBorsa.API.Controllers
             var listGolden = await _goldenService.ListGolden();
             return Ok(listGolden);
         }
+
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var golden = await _goldenService.GetByIdGolden(id);
+            
+            if (golden != null)
+            {
+                return Ok(golden);
+            }
+            else
+            {
+                return NotFound();
+            }
+            
+        }
+
+
         [HttpDelete]
         [Route("DeleteGolden/{id:int}")]
         public async Task<IActionResult> DeleteGolden(int id)

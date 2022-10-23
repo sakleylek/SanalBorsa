@@ -1,4 +1,5 @@
-﻿using SanalBorsa.Core.Entities;
+﻿using SanalBorsa.Bussines.Intefaces;
+using SanalBorsa.Core.Entities;
 using SanalBorsa.Data.Repostories;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SanalBorsa.Bussines
+namespace SanalBorsa.Bussines.Services
 {
     public class GoldenService : IGoldenService
     {
@@ -31,6 +32,12 @@ namespace SanalBorsa.Bussines
         {
             var entity = await _repository.GetByIdAsync(id);
             _repository.Remove(entity);
+        }
+
+        public async Task<Golden> GetByIdGolden(int id)
+        {
+            return await _repository.GetByIdAsync(id);
+
         }
 
     }
